@@ -26,9 +26,67 @@
           </li>
         </ol>
       </li>
-      <li></li>
-      <li></li>
-      <li></li>
+      <li>
+        <h3>Four States of JavaScript Promises</h3>
+        <ol>
+          <li>
+            <strong>Pending</strong>: The first state. This is the initial state
+            when we create a Promise and invoke it. It is the state of Promise
+            that is neighter fulfilled(resolved) nor rejected.
+          </li>
+          <li>
+            <strong>Fulfilled</strong>: This is the second state of Promise
+            being successfully resolved.
+          </li>
+          <li>
+            <strong>Rejected</strong>: This is the third state of Promise being
+            rejected due to some problem that prevented the Promise from being
+            successfully fulfilled.
+          </li>
+          <li>
+            <strong>Settled</strong>: The last state that the job of Promise is
+            finished and the Promise was either fulfilled or rejected.
+          </li>
+        </ol>
+      </li>
+      <li>
+        <h3>Handling JavaScript Promises with Handler Functions</h3>
+        <ol>
+          <li>
+            The <em>then()</em>, <em>catch()</em> and <em>finally()</em> are
+            handler functions you can attach to a Promise.
+          </li>
+          <li>
+            When you invoke a Promise and the promise is settled(resolved or
+            rejected) one of these handlers will be automatically invoked. When
+            there are some data returned from a Promise it is passed into these
+            handlers.
+          </li>
+          <li>
+            We could put logic for updating our app with the data we received
+            from API into these handlers. Without these handlers, the Promise
+            would still run after we invoke it. These handlers are like
+            messengers that transport the message from Promise further down the
+            chain.
+          </li>
+        </ol>
+      </li>
+      <li>
+        <h3>The <em>then()</em> handler function</h3>
+        <ol>
+          <li>
+            The <em>then()</em> handler is usually used to handle fulfilled
+            state of JavaScript Promises.
+          </li>
+          <li>We need to attach it after the Promise when we invoke it.</li>
+          <li>
+            To access the data passed into the handler inside the Promise, we
+            need to pass a callback function to the <em>then()</em> handler.
+            This callback function should accept one parameter that represents
+            the data returned by the Promise.
+          </li>
+        </ol>
+      </li>
       <li></li>
     </ul>
   </div>
