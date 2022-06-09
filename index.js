@@ -44,6 +44,9 @@ console.log(myPromiseFunction());
 //The promise with handler functions
 // ***************************************
 
+//the then() handler
+// ----------------------------------------
+
 const promise2 = new Promise((resolve, reject) => {
   //fake a delay
   setTimeout(function () {
@@ -90,3 +93,47 @@ promise3.then(
 //output:
 // Promise has been rejected...
 
+//the catch() handler
+// ----------------------------------------
+
+//Reject promise without then()
+// -----------------------------------------
+const promise4 = new Promise((resolve, reject) => {
+  setTimeout(function () {
+    reject('Unfortunately, Promise has been rejected...');
+  }, 1000);
+});
+
+//Invoke the promise and attach catch() handler
+//pass a callback function to the catch() handler
+//make that callback function accept one parameter
+promise4.catch((error) => {
+  console.log(error);
+});
+
+//output:
+//Unfortunately, Promise has been rejected...
+
+//Reject promise with then()
+// -----------------------------------------
+const promise5 = new Promise((resolve, reject) => {
+  console.log("it is test...")
+  if (error) {
+    reject('Promise has been denied!!!');
+  } else {
+    resolve('Promise has been accepted!!!');
+  }
+});
+
+//invoke the promise and first attach then() handler
+// with a callback function to that accepts one parameter
+//then attach catch() handler also with a callback function
+//that accepts one parameter
+console.log("it is test2...")
+promise5
+  .then((receivedData) => {
+    console.log(receivedData);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
