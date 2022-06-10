@@ -117,7 +117,7 @@ promise4.catch((error) => {
 //Reject promise with then()
 // -----------------------------------------
 const promise5 = new Promise((resolve, reject) => {
-  console.log("it is test...")
+  console.log('it is test...');
   if (error) {
     reject('Promise has been denied!!!');
   } else {
@@ -129,7 +129,7 @@ const promise5 = new Promise((resolve, reject) => {
 // with a callback function to that accepts one parameter
 //then attach catch() handler also with a callback function
 //that accepts one parameter
-console.log("it is test2...")
+console.log('it is test2...');
 promise5
   .then((receivedData) => {
     console.log(receivedData);
@@ -137,3 +137,27 @@ promise5
   .catch((error) => {
     console.log(error);
   });
+
+// The finally() handler function
+// -----------------------------------------
+
+const promise6 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('Promise has been nicely resolved.');
+  }, 1000);
+});
+
+promise6
+  .then((receivedData) => {
+    console.log(receivedData);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    console.log('Promise is finally done!.');
+  });
+
+//output
+// Promise has been nicely resolved.
+// Promise is finally done!.
