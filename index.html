@@ -128,7 +128,7 @@
         </ol>
       </li>
       <li>
-        <h3>Promise.all()</h3>
+        <h3><mark>Promise.all()</mark></h3>
         <ol>
           <li>
             When we pass Promises into <em>Promise.all()</em> it will try to
@@ -148,6 +148,45 @@
             If one Promise '<strong>fails</strong>' <em>Promise.all()</em> will
             return only the rejected value and does not return data from any
             previously resolved Promise(s).
+          </li>
+          <li>
+            <strong>Note:</strong>
+            <em
+              >Make sure to add catch() handler when you use Promise.all(). Or,
+              add a second callback to then(). Otherwise, you will not get any
+              error data if any Promise gets rejected.</em
+            >
+          </li>
+        </ol>
+      </li>
+      <li>
+        <h3><mark>Promise.allSettled()</mark></h3>
+        <ol>
+          <li>
+            The <em>Promise.allSettled()</em> is another method we can use to
+            handle multiple Promises.
+          </li>
+          <li>
+            The Promise.allSettled works similarly to the Promise.all(). It als
+            tries to resolve all Promises we pass into it.
+          </li>
+          <li>
+            The main advantage on this is if any Promise is rejected the
+            Promise.allSettled() waits for other Promises. So we don't have to
+            worry about losing resolved values just because one Promise fails.
+            We get all values from those Promises that are resolved as well as
+            the rejected ones.
+          </li>
+          <li>
+            This returns all values when all Promises are settled whether the
+            Promises gets rejected or resolved.
+          </li>
+          <li>
+            The values returned by Promise.allSettled() are in the form of an
+            objects. Each object contains the status of the Promises. If Promise
+            is fulfilled the corresponding object contains a value received from
+            that Promise . If any Promise is rejected, the corresponding object
+            contains reason with error data.
           </li>
         </ol>
       </li>

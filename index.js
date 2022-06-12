@@ -212,3 +212,28 @@ Promise.all([promise71, promise72, promise73])
 // promise73 has been rejected!
 
 // !! Notice that the data from promise71 and promise72 that were resolved before the promise73 was rejected are missing
+
+// Promise.allSettled()
+// ***************************************
+
+Promise.allSettled([promise71, promise73, promise72]).then((data) => {
+  console.log(data);
+});
+
+//output
+/*
+[Object, Object, Object]
+0: Object
+status: "fulfilled"
+value: "promise71 has been resolved."
+__proto__: Object
+1: Object
+reason: "promise73 has been rejected!"
+status: "rejected"
+__proto__: Object
+2: Object
+status: "fulfilled"
+value: "promise72 has been resolved."
+__proto__: Object
+promise73 has been rejected!
+*/
