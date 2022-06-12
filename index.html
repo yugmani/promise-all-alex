@@ -190,6 +190,34 @@
           </li>
         </ol>
       </li>
+      <li>
+        <h3><mark>Promise.all()</mark></h3>
+        <ol>
+          <li>
+            It takes a couple of Promises and let them race. It will return new
+            Promise when one of the Promises that we passed into it fulfills or
+            rejects as first.
+          </li>
+          <li>
+            This new Promise contains either value if resolved or reason if
+            rejected.
+          </li>
+          <li>
+            <strong>Note</strong> Similarly to <em>Promise.all()</em>, also add
+            <em>catch()</em> handler when you use <em>Promise.race()</em>. Or,
+            add a second callback to <em>then()</em>. Otherwise, you will not
+            get any error data if the first Promise gets rejected.
+          </li>
+        </ol>
+      </li>
+      <li>
+        <h3><mark>Promise.any()</mark></h3>
+        <ol>
+          <li>The Promise.any() is similar to Promise.race().</li>
+          <li>It returns the Promise that is first to resolve(fulfilled).</li>
+          <li>This ignores any Promise that is settled first but rejected.</li>
+        </ol>
+      </li>
     </ul>
   </div>
   <a href="https://blog.alexdevero.com/javascript-promises/"

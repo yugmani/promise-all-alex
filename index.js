@@ -162,6 +162,7 @@ promise6
 // Promise has been nicely resolved.
 // Promise is finally done!.
 
+// ********************************************
 // Promise.all()
 // ********************************************
 
@@ -179,6 +180,7 @@ const promise72 = new Promise((resolve, reject) => {
 
 Promise.all([promise71, promise72])
   .then((data) => {
+    console.log('*******Promise.all()*******');
     console.log(data);
   })
   .catch((error) => {
@@ -202,6 +204,7 @@ const promise73 = new Promise((resolve, reject) => {
 //to process all promises
 Promise.all([promise71, promise72, promise73])
   .then((data) => {
+    console.log('*******Promise.all()*******');
     console.log(data);
   })
   .catch((error) => {
@@ -209,7 +212,12 @@ Promise.all([promise71, promise72, promise73])
   });
 
 //output:
-// promise73 has been rejected!
+// *******Promise.all()*******
+/*
+["promise71 has been resolved.", "promise72 has been resolved."]
+0: "promise71 has been resolved."
+1: "promise72 has been resolved."
+*/
 
 // !! Notice that the data from promise71 and promise72 that were resolved before the promise73 was rejected are missing
 
@@ -217,10 +225,12 @@ Promise.all([promise71, promise72, promise73])
 // ***************************************
 
 Promise.allSettled([promise71, promise73, promise72]).then((data) => {
+  console.log('*******Promise.allSettled()*******');
   console.log(data);
 });
 
 //output
+// *******Promise.allSettled()*******
 /*
 [Object, Object, Object]
 0: Object
@@ -237,3 +247,37 @@ value: "promise72 has been resolved."
 __proto__: Object
 promise73 has been rejected!
 */
+
+// Promise.race()
+// ********************************************
+
+Promise.race([promise71, promise72, promise73])
+  .then((data) => {
+    console.log('*******Promise.race()*******');
+    console.log('Race:', data);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+//output:
+// *******Promise.race()*******
+// Race: promise71 has been resolved.
+
+// ***************************************
+// Promise.any()
+// ***************************************
+
+Promise.any([promise71, promise72, promise73])
+  .then((data) => {
+    console.log('*******Promise.any()*******');
+    console.log(data);
+  })
+  .catch((error) => {
+    console.log('*******Promise.any()*******');
+    console.log(error);
+  });
+
+//output
+//*******Promise.any()*******
+// promise71 has been resolved.
