@@ -161,3 +161,54 @@ promise6
 //output
 // Promise has been nicely resolved.
 // Promise is finally done!.
+
+// Promise.all()
+// ********************************************
+
+const promise71 = new Promise((resolve, reject) => {
+  setTimeout(function () {
+    resolve('promise71 has been resolved.');
+  }, 500);
+});
+
+const promise72 = new Promise((resolve, reject) => {
+  setTimeout(function () {
+    resolve('promise72 has been resolved.');
+  }, 1000);
+});
+
+Promise.all([promise71, promise72])
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+//output
+/*
+[
+  "promise71 has been resolved.", 
+  "promise72 has been resolved."
+]
+*/
+
+const promise73 = new Promise((resolve, reject) => {
+  setTimeout(function () {
+    reject('promise73 has been rejected!');
+  }, 1000);
+});
+
+//to process all promises
+Promise.all([promise71, promise72, promise73])
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+//output:
+// promise73 has been rejected!
+
+// !! Notice that the data from promise71 and promise72 that were resolved before the promise73 was rejected are missing

@@ -120,7 +120,35 @@
             It is useful when we want to do something regardless of the final
             state of a Promise.
           </li>
-          <li>Unlike the <em>then()</em> and <em>catch()</em>, this handler doesn't require any parameter because there is nothing passed into it.</li>
+          <li>
+            Unlike the <em>then()</em> and <em>catch()</em>, this handler
+            doesn't require any parameter because there is nothing passed into
+            it.
+          </li>
+        </ol>
+      </li>
+      <li>
+        <h3>Promise.all()</h3>
+        <ol>
+          <li>
+            When we pass Promises into <em>Promise.all()</em> it will try to
+            resolve all of them.
+          </li>
+          <li>
+            When all Promises we passed are resolved <em>Promise.all()</em> will
+            return one Promise that contains all values.
+          </li>
+          <li>
+            We can then access this value by attaching then() handler to the
+            <em>Promise.all()</em>, along with callback function.
+          </li>
+          <li>
+            If one of the Promises gets rejected the
+            <em>Promises.all()</em> will immediately return the rejected value.
+            If one Promise '<strong>fails</strong>' <em>Promise.all()</em> will
+            return only the rejected value and does not return data from any
+            previously resolved Promise(s).
+          </li>
         </ol>
       </li>
     </ul>
